@@ -1,6 +1,7 @@
 <template>
 	<div class="app">
-		<buefy-style-guide></buefy-style-guide>
+		<buefy-style-guide
+		></buefy-style-guide>
 	</div>
 </template>
 
@@ -16,7 +17,8 @@
 			BuefyStyleGuide,
 		},
 	})
-	export default class App extends Vue {}
+	export default class App extends Vue {
+	}
 </script>
 
 <style lang="scss">
