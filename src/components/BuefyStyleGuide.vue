@@ -9,194 +9,182 @@
 			</div>
 		</header>
 		<main>
-			<section class="buefy-style-guide__section">
-				<div class="container">
-					<header class="buefy-style-guide__section-header">
-						<h1 class="title">Buttons</h1>
-					</header>
-					<div class="buefy-style-guide__section-body">
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Semantic Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }} Button
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Hovered Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          class="is-hovered"
-								          :key="buttonTypeIndex"
-								          :rounded="preferRounded"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Focused Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          class="is-focused"
-								          :key="buttonTypeIndex"
-								          :rounded="preferRounded"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Active Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          class="is-active"
-								          :key="buttonTypeIndex"
-								          :rounded="preferRounded"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Disabled Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          disabled
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Button Sizes</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonSizeKey, buttonSizeIndex) in buttonSizes"
-								          type="is-primary"
-								          :rounded="preferRounded"
-								          :key="buttonSizeIndex"
-								          :size="`is-${buttonSizeKey}`">
-									{{ buttonSizeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Icon Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          icon-pack="fas"
-								          :icon-left="buttonTypeIndex % 2 === 0 ? getIconCode(buttonTypeIndex) : ''"
-								          :icon-right="buttonTypeIndex % 2 !== 0 ? getIconCode(buttonTypeIndex) : ''"
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ getIconCode(buttonTypeIndex) }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Outlined Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          outlined
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Focused Outlined Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          class="is-focused"
-								          outlined
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">{{ preferRounded ? 'Squared' : 'Rounded' }} Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          :rounded="!preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Loading Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          loading
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
+			<bsg-section title="Inverted Buttons">
+
+				<bsg-subsection title="Semantic Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }} Button
+						</b-button>
 					</div>
-				</div>
-			</section>
-			<section class="buefy-style-guide__section">
-				<div class="container">
-					<header class="buefy-style-guide__section-header">
-						<h1 class="title">Inverted Buttons</h1>
-					</header>
-					<div class="buefy-style-guide__section-body">
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Semantic Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          inverted
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">Disabled Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          disabled
-								          inverted
-								          :rounded="preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
-						<div class="buefy-style-guide__subsection">
-							<h2 class="subtitle">{{ preferRounded ? 'Squared' : 'Rounded' }} Buttons</h2>
-							<div class="buttons">
-								<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-								          inverted
-								          :rounded="!preferRounded"
-								          :key="buttonTypeIndex"
-								          :type="`is-${buttonTypeKey}`">
-									{{ buttonTypeKey }}
-								</b-button>
-							</div>
-						</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Hovered Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-hovered"
+						          :key="buttonTypeIndex"
+						          :rounded="preferRounded"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
 					</div>
-				</div>
-			</section>
+				</bsg-subsection>
+
+				<bsg-subsection title="Focused Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-focused"
+						          :key="buttonTypeIndex"
+						          :rounded="preferRounded"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Active Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-active"
+						          :key="buttonTypeIndex"
+						          :rounded="preferRounded"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Disabled Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          disabled
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Button Sizes">
+					<div class="buttons">
+						<b-button v-for="(buttonSizeKey, buttonSizeIndex) in buttonSizes"
+						          type="is-primary"
+						          :rounded="preferRounded"
+						          :key="buttonSizeIndex"
+						          :size="`is-${buttonSizeKey}`">
+							{{ buttonSizeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Icon Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          icon-pack="fas"
+						          :icon-left="buttonTypeIndex % 2 === 0 ? getIconCode(buttonTypeIndex) : ''"
+						          :icon-right="buttonTypeIndex % 2 !== 0 ? getIconCode(buttonTypeIndex) : ''"
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ getIconCode(buttonTypeIndex) }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Outlined Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          outlined
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Focused Outlined Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-focused"
+						          outlined
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          :rounded="!preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Loading Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          loading
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+			</bsg-section>
+			<bsg-section title="Inverted Buttons">
+
+				<bsg-subsection title="Semantic Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          inverted
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Disabled Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          disabled
+						          inverted
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          inverted
+						          :rounded="!preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+			</bsg-section>
 		</main>
 	</div>
 </template>
@@ -209,8 +197,15 @@
 		DEFAULT_BUTTON_TYPES,
 	} from '@/constants';
 
+	import BsgSection from './BsgSection.vue';
+	import BsgSubsection from './BsgSubsection.vue';
+
 	export default Vue.extend({
 		name: "BuefyStyleGuide",
+		components: {
+			BsgSection,
+			BsgSubsection,
+		},
 		data() {
 			return {
 			};
@@ -250,4 +245,18 @@
 	});
 </script>
 
-<style lang="scss" src="./BuefyStyleGuide.scss"></style>
+<style lang="scss">
+	@import '../assets/scss/includes';
+
+	.buefy-style-guide {
+		&__subsection {
+			& + & {
+				margin-top:$spacer;
+			}
+		}
+
+		.button {
+			text-transform: capitalize;
+		}
+	}
+</style>
