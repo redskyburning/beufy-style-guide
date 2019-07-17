@@ -1,6 +1,6 @@
 <template>
 	<div class="buefy-style-guide">
-		<header class="hero is-primary is-bold">
+		<header class="buefy-style-guide__header hero is-medium is-primary is-bold">
 			<div class="hero-body">
 				<div class="container">
 					<h1 class="title">{{ title }}</h1>
@@ -8,8 +8,8 @@
 				</div>
 			</div>
 		</header>
-		<main>
-			<bsg-section title="Inverted Buttons">
+		<main class="buefy-style-guide__body">
+			<bsg-section title="Buttons">
 
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">
@@ -145,7 +145,7 @@
 				</bsg-subsection>
 
 			</bsg-section>
-			<bsg-section title="Inverted Buttons">
+			<bsg-section title="Inverted Buttons" inverted>
 
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">
@@ -226,15 +226,15 @@
 			},
 			buttonTypes: {
 				type: Array,
-				default: DEFAULT_BUTTON_TYPES,
+				default: () => DEFAULT_BUTTON_TYPES,
 			},
 			buttonSizes: {
 				type: Array,
-				default: DEFAULT_BUTTON_SIZES,
+				default: () => DEFAULT_BUTTON_SIZES,
 			},
 			buttonIcons: {
 				type: Array,
-				default: DEFAULT_BUTTON_ICONS,
+				default: () => DEFAULT_BUTTON_ICONS,
 			},
 		},
 		methods: {
@@ -249,10 +249,8 @@
 	@import '../assets/scss/includes';
 
 	.buefy-style-guide {
-		&__subsection {
-			& + & {
-				margin-top:$spacer;
-			}
+		&__body {
+			padding:$spacer 0;
 		}
 
 		.button {

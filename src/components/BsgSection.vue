@@ -1,12 +1,27 @@
 <template>
-	<section class="bsg-section">
+	<section class="bsg-section"
+	         :class="{ 'is-inverted' : this.inverted }">
 		<div class="container">
-			<header class="bsg-section__header">
-				<h1 class="title">{{ title }}</h1>
-			</header>
-			<div class="bsg-section__body">
-				<slot></slot>
-			</div>
+			<b-collapse class="card" aria-id="contentIdForA11y3">
+				<div
+					slot="trigger"
+					slot-scope="props"
+					class="card-header"
+					role="button">
+					<div class="card-header-title">
+						{{ title }}
+					</div>
+					<a class="card-header-icon">
+						<b-icon
+							pack="fas"
+							:icon="props.open ? 'caret-down' : 'caret-up'">
+						</b-icon>
+					</a>
+				</div>
+				<div class="card-content">
+					<slot></slot>
+				</div>
+			</b-collapse>
 		</div>
 	</section>
 </template>
@@ -25,6 +40,14 @@
 				type: String,
 				required: true,
 			},
+			open : {
+				type: Boolean,
+				default: true,
+			},
+			inverted : {
+				type: Boolean,
+				default: false,
+			},
 		},
 	});
 </script>
@@ -33,13 +56,25 @@
 	@import '../assets/scss/includes';
 
 	.bsg-section {
-		margin:$spacer 0;
-		padding:$spacer 0;
+		& + & {
+			margin-top:$spacer;
+		}
 
 		&__header {
 			padding-bottom:$spacer / 4;
 			margin-bottom:$spacer;
 			border-bottom:3px solid black;
+		}
+
+		&.is-inverted {
+			.title,
+			.subtitle {
+				color:$white;
+			}
+
+			.card-content {
+				background-color:$grey-dark;
+			}
 		}
 	}
 </style>
