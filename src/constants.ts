@@ -24,3 +24,7 @@ export const DEFAULT_BUTTON_ICONS = [
 	'trash-alt',
 	'user',
 ];
+
+export const DEFAULT_TITLE_SIZES = [
+	1, 2, 3, 4, 5, 6, 7,
+];

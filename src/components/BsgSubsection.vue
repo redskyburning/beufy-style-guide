@@ -1,6 +1,6 @@
 <template>
 	<div class="bsg-subsection">
-		<h2 class="subtitle">{{ title }}</h2>
+		<h2 class="bsg-subsection__title title is-4">{{ title }}</h2>
 		<div class="bsg-subsection__body">
 			<slot></slot>
 		</div>
@@ -29,6 +29,11 @@
 	@import '../assets/scss/includes';
 
 	.bsg-subsection {
+		&__title {
+			//border-bottom:3px solid $grey-dark;
+			//line-height:2em;
+		}
+
 		& + & {
 			margin-top:$spacer;
 		}

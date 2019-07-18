@@ -9,6 +9,28 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
+
+			<bsg-section title="Titles">
+				<bsg-subsection>
+					<h1 v-for="(titleSize, titleI) in titleSizes"
+					    :key="titleI"
+					    :class="`title is-${titleSize}`">Title {{ titleSize }}</h1>
+				</bsg-subsection>
+				<bsg-subsection>
+					<h1 v-for="(titleSize, titleI) in titleSizes"
+					    :key="titleI"
+					    :class="`subtitle is-${titleSize}`">Subtitle {{ titleSize }}</h1>
+				</bsg-subsection>
+				<bsg-subsection>
+					<div class="content"
+					     v-for="(titleSize, titleI) in titleSizes.slice(0, (titlePairOffset * -1))"
+					     :key="titleI">
+						<h1 :class="`title is-${titleSize}`">Title {{ titleSize }}</h1>
+						<h1 :class="`subtitle is-${titleSize + titlePairOffset}`">Subtitle {{ titleSize + titlePairOffset }}</h1>
+					</div>
+				</bsg-subsection>
+			</bsg-section>
+
 			<bsg-section title="Buttons">
 
 				<bsg-subsection title="Semantic Buttons">
@@ -195,6 +217,7 @@
 		DEFAULT_BUTTON_ICONS,
 		DEFAULT_BUTTON_SIZES,
 		DEFAULT_BUTTON_TYPES,
+		DEFAULT_TITLE_SIZES,
 	} from '@/constants';
 
 	import BsgSection from './BsgSection.vue';
@@ -208,6 +231,7 @@
 		},
 		data() {
 			return {
+				titlePairOffset: 2,
 			};
 		},
 		props: {
@@ -236,6 +260,10 @@
 				type: Array,
 				default: () => DEFAULT_BUTTON_ICONS,
 			},
+			titleSizes: {
+				type: Array,
+				default: () => DEFAULT_TITLE_SIZES,
+			}
 		},
 		methods: {
 			getIconCode(index: number) {
