@@ -11,11 +11,18 @@
 					<div class="card-header-title">
 						<h1 class="title is-3">{{ title }}</h1>
 					</div>
-					<a class="card-header-icon">
+					<a class="card-header-icon"
+					   v-show="props.open">
 						<b-icon
-							size="is-large"
 							pack="fas"
-							:icon="props.open ? 'caret-down' : 'caret-up'">
+							icon="caret-down">
+						</b-icon>
+					</a>
+					<a class="card-header-icon"
+					   v-show="!props.open">
+						<b-icon
+							pack="fas"
+							icon="caret-up">
 						</b-icon>
 					</a>
 				</div>
@@ -43,7 +50,7 @@
 			},
 			open : {
 				type: Boolean,
-				default: true,
+				default: false,
 			},
 			inverted : {
 				type: Boolean,
@@ -65,10 +72,6 @@
 			padding-bottom:$spacer / 4;
 			margin-bottom:$spacer;
 			border-bottom:3px solid black;
-		}
-
-		.card-header-title {
-			//font-size:$size-3;
 		}
 
 		&.is-inverted &__body {
