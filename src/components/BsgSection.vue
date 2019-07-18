@@ -2,7 +2,8 @@
 	<section class="bsg-section"
 	         :class="{ 'is-inverted' : this.inverted }">
 		<div class="container">
-			<b-collapse class="card">
+			<b-collapse class="card"
+			            :open="open">
 				<div
 					slot="trigger"
 					slot-scope="props"
