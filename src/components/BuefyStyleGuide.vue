@@ -9,54 +9,11 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
-			<bsg-section title="Dropdowns"
-			             open>
-				<bsg-subsection title="Semantic Dropdowns">
-					<b-dropdown
-						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-						:key="buttonTypeIndex"
-					>
-						<b-button
-							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`"
-							icon-right="caret-down"
-							slot="trigger"
-						>
-							{{ buttonTypeKey }}
-						</b-button>
-
-						<b-dropdown-item
-							v-for="(item, itemIndex) in dropdownItems"
-							:key="itemIndex"
-							:separator="item.separator"
-							:disabled="item.disabled"
-						>{{ item.label }}</b-dropdown-item>
-					</b-dropdown>
-				</bsg-subsection>
-
-				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Dropdown`">
-					<b-dropdown
-						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-						:key="buttonTypeIndex"
-					>
-						<b-button
-							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`"
-							icon-right="caret-down"
-							slot="trigger"
-							rounded="!preferRounded"
-						>
-							{{ buttonTypeKey }}
-						</b-button>
-
-						<b-dropdown-item
-							v-for="(item, itemIndex) in dropdownItems"
-							:key="itemIndex"
-							:separator="item.separator"
-							:disabled="item.disabled"
-						>{{ item.label }}</b-dropdown-item>
-					</b-dropdown>
-				</bsg-subsection>
+			<bsg-section title="Dialogs & Modals" open>
+				<dialog-modal
+					:dialog-sizes="dialogSizes"
+					:types="semanticTypes"
+				/>
 			</bsg-section>
 
 			<bsg-section title="Tags">
@@ -371,6 +328,55 @@ They had found their dead city brooding under its curse, and had read its carven
 				</bsg-subsection>
 
 			</bsg-section>
+
+			<bsg-section title="Dropdowns">
+				<bsg-subsection title="Semantic Dropdowns">
+					<b-dropdown
+						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						:key="buttonTypeIndex"
+					>
+						<b-button
+							:rounded="preferRounded"
+							:type="`is-${buttonTypeKey}`"
+							icon-right="caret-down"
+							slot="trigger"
+						>
+							{{ buttonTypeKey }}
+						</b-button>
+
+						<b-dropdown-item
+							v-for="(item, itemIndex) in dropdownItems"
+							:key="itemIndex"
+							:separator="item.separator"
+							:disabled="item.disabled"
+						>{{ item.label }}</b-dropdown-item>
+					</b-dropdown>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Dropdown`">
+					<b-dropdown
+						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						:key="buttonTypeIndex"
+					>
+						<b-button
+							:rounded="!preferRounded"
+							:type="`is-${buttonTypeKey}`"
+							icon-right="caret-down"
+							slot="trigger"
+						>
+							{{ buttonTypeKey }}
+						</b-button>
+
+						<b-dropdown-item
+							v-for="(item, itemIndex) in dropdownItems"
+							:key="itemIndex"
+							:separator="item.separator"
+							:disabled="item.disabled"
+						>{{ item.label }}</b-dropdown-item>
+					</b-dropdown>
+				</bsg-subsection>
+			</bsg-section>
+
 		</main>
 	</div>
 </template>
@@ -378,9 +384,11 @@ They had found their dead city brooding under its curse, and had read its carven
 <script lang="ts">
 	import Vue from 'vue';
 	import {
+		CORE_SEMANTIC_TYPES,
 		DEFAULT_BUTTON_ICONS,
 		DEFAULT_BUTTON_SIZES,
 		DEFAULT_BUTTON_TYPES,
+		DEFAULT_DIALOG_SIZES,
 		DEFAULT_DROPDOWN_ITEMS,
 		DEFAULT_TAG_TYPES,
 		DEFAULT_TITLE_SIZES,
@@ -388,12 +396,14 @@ They had found their dead city brooding under its curse, and had read its carven
 
 	import BsgSection from './BsgSection.vue';
 	import BsgSubsection from './BsgSubsection.vue';
+	import DialogModal from './DialogModal.vue';
 
 	export default Vue.extend({
 		name      : 'BuefyStyleGuide',
 		components: {
 			BsgSection,
 			BsgSubsection,
+			DialogModal,
 		},
 		data() {
 			return {
@@ -443,6 +453,14 @@ They had found their dead city brooding under its curse, and had read its carven
 			dropdownItems     : {
 				type   : Array,
 				default: () => DEFAULT_DROPDOWN_ITEMS,
+			},
+			dialogSizes : {
+				type : Array,
+				default: () => DEFAULT_DIALOG_SIZES,
+			},
+			semanticTypes : {
+				type : Array,
+				default: () => CORE_SEMANTIC_TYPES,
 			},
 		},
 		methods   : {

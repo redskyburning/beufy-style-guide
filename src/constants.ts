@@ -1,3 +1,11 @@
+export const CORE_SEMANTIC_TYPES = [
+	'primary',
+	'success',
+	'info',
+	'warning',
+	'danger',
+];
+
 export const DEFAULT_BUTTON_TYPES = [
 	'default',
 	'primary',
@@ -47,11 +55,11 @@ export const DEFAULT_DROPDOWN_ITEMS = [
 		label: 'Gasoline-driven tekeli-li',
 	},
 	{
-		label: 'Especially hideously',
+		label   : 'Especially hideously',
 		disabled: true,
 	},
 	{
-		label: 'Re-sculptured antarctic',
+		label    : 'Re-sculptured antarctic',
 		separator: true,
 	},
 	{
@@ -62,4 +70,8 @@ export const DEFAULT_DROPDOWN_ITEMS = [
 	},
 ];
 
-// Interested pabodie's  transmontane re-sculptured antarctic desirable different. Gastropods disturbing unprecedented beardmore traversing remarking effecting especially hideously.
+export const DEFAULT_DIALOG_SIZES = [
+	'small',
+	'medium',
+	'large',
+];
