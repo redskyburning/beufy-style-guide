@@ -16,14 +16,14 @@
 					   v-show="props.open">
 						<b-icon
 							pack="fas"
-							icon="caret-down">
+							icon="minus">
 						</b-icon>
 					</a>
 					<a class="card-header-icon"
 					   v-show="!props.open">
 						<b-icon
 							pack="fas"
-							icon="caret-up">
+							icon="plus">
 						</b-icon>
 					</a>
 				</div>

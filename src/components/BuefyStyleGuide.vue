@@ -9,8 +9,77 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
+			<bsg-section title="Tags" open>
+				<bsg-subsection title="Tags Sizes">
+					<div class="tags">
+						<b-tag v-for="(tagSizeKey, tagSizeIndex) in tagSizes"
+						          :rounded="preferRounded"
+						          :key="tagSizeIndex"
+						          :type="`is-${tagTypes[tagSizeIndex]}`"
+						          :size="`is-${tagSizeKey}`"
+						>
+							{{ tagSizeKey }} Tag
+						</b-tag>
+					</div>
+				</bsg-subsection>
 
-			<bsg-section title="Content" open>
+				<bsg-subsection title="Semantic Tags">
+					<div class="tags">
+						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
+						          :rounded="preferRounded"
+						          :key="tagTypeIndex"
+						          :type="`is-${tagTypeKey}`">
+							{{ tagTypeKey }} Tag
+						</b-tag>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Tags`">
+					<div class="tags">
+						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
+						          :rounded="!preferRounded"
+						          :key="tagTypeIndex"
+						          :type="`is-${tagTypeKey}`">
+							{{ tagTypeKey }} Tag
+						</b-tag>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Closeable Tags">
+					<div class="tags">
+						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
+						       :rounded="preferRounded"
+						       :key="tagTypeIndex"
+						       :type="`is-${tagTypeKey}`"
+						       v-if="tagState[tagTypeIndex]"
+						       @close="closeTab(tagTypeIndex)"
+						       closable
+						>
+							{{ tagTypeKey }} Tag {{ tagState[tagTypeIndex] }}
+						</b-tag>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Attached Closeable Tags">
+					<div class="field is-grouped is-grouped-multiline">
+						<div class="control"
+						     v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
+						     :key="tagTypeIndex"
+						     v-if="attachedTagState[tagTypeIndex]">
+							<b-tag :rounded="preferRounded"
+							       :type="`is-${tagTypeKey}`"
+							       closable
+							       @close="closeAttachedTab(tagTypeIndex)"
+							       attached
+							>
+								{{ tagTypeKey }} Tag
+							</b-tag>
+						</div>
+					</div>
+				</bsg-subsection>
+			</bsg-section>
+
+			<bsg-section title="Content">
 				<div class="content">
 					<h1>H1: I say that we approached those sprawling and incomplete obstructions slowly and reluctantly.</h1>
 					<p>Would to Heaven we had never approached them at all, but had run back at top speed out of that blasphemous tunnel with the greasily smooth floors and the degenerate murals aping and mocking the things they had superseded—run back, before we had seen what we did see, and before our minds were burned with something which will never let us breathe easily again!</p>
@@ -210,6 +279,7 @@ They had found their dead city brooding under its curse, and had read its carven
 				</bsg-subsection>
 
 			</bsg-section>
+
 			<bsg-section title="Inverted Buttons" inverted>
 
 				<bsg-subsection title="Semantic Buttons">
@@ -260,6 +330,7 @@ They had found their dead city brooding under its curse, and had read its carven
 		DEFAULT_BUTTON_ICONS,
 		DEFAULT_BUTTON_SIZES,
 		DEFAULT_BUTTON_TYPES,
+		DEFAULT_TAG_TYPES,
 		DEFAULT_TITLE_SIZES,
 	} from '@/constants';
 
@@ -275,6 +346,8 @@ They had found their dead city brooding under its curse, and had read its carven
 		data() {
 			return {
 				titlePairOffset: 2,
+				tagState: Array(this.tagTypes.length).fill(true),
+				attachedTagState: Array(this.tagTypes.length).fill(true),
 			};
 		},
 		props: {
@@ -306,11 +379,25 @@ They had found their dead city brooding under its curse, and had read its carven
 			titleSizes: {
 				type: Array,
 				default: () => DEFAULT_TITLE_SIZES,
-			}
+			},
+			tagTypes: {
+				type: Array,
+				default: () => DEFAULT_TAG_TYPES,
+			},
+			tagSizes: {
+				type: Array,
+				default: () => DEFAULT_BUTTON_SIZES,
+			},
 		},
 		methods: {
 			getIconCode(index: number) {
 				return this.buttonIcons[index % this.buttonIcons.length];
+			},
+			closeTab(index: number) {
+				this.$set(this.tagState, index, false);
+			},
+			closeAttachedTab(index: number) {
+				this.$set(this.attachedTagState, index, false);
 			},
 		},
 	});
@@ -324,7 +411,8 @@ They had found their dead city brooding under its curse, and had read its carven
 			padding:$spacer 0;
 		}
 
-		.button {
+		.button,
+		.tag {
 			text-transform: capitalize;
 		}
 

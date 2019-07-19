@@ -11,9 +11,22 @@ export const DEFAULT_BUTTON_TYPES = [
 	'text',
 ];
 
-export const DEFAULT_BUTTON_SIZES = [
-	'small',
+export const DEFAULT_TAG_TYPES = [
 	'default',
+	'primary',
+	'success',
+	'info',
+	'warning',
+	'danger',
+	'link',
+	'light',
+	'white',
+	'dark',
+	'black',
+];
+
+export const DEFAULT_BUTTON_SIZES = [
+	'normal',
 	'medium',
 	'large',
 ];

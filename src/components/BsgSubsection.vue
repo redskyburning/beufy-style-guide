@@ -1,6 +1,7 @@
 <template>
 	<div class="bsg-subsection">
-		<h2 class="bsg-subsection__title title is-4">{{ title }}</h2>
+		<h2 class="bsg-subsection__title title is-4"
+		    v-if="title">{{ title }}</h2>
 		<div class="bsg-subsection__body">
 			<slot></slot>
 		</div>
@@ -19,7 +20,6 @@
 		props: {
 			title : {
 				type: String,
-				required: true,
 			},
 		},
 	});
