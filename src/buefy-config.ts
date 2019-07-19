@@ -1,5 +1,5 @@
 export const buefyConfig = {
-	defaultIconPack: 'fa',
+	defaultIconPack: 'fas',
 	defaultToastPosition: 'is-bottom-right',
 	defaultToastDuration: 2000,
 };
