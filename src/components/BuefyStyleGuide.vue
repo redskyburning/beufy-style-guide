@@ -9,14 +9,21 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
-			<bsg-section title="Tags" open>
+			<bsg-section title="Dialogs & Modals" open>
+				<dialog-modal
+					:dialog-sizes="dialogSizes"
+					:types="semanticTypes"
+				/>
+			</bsg-section>
+
+			<bsg-section title="Tags">
 				<bsg-subsection title="Tags Sizes">
 					<div class="tags">
 						<b-tag v-for="(tagSizeKey, tagSizeIndex) in tagSizes"
-						          :rounded="preferRounded"
-						          :key="tagSizeIndex"
-						          :type="`is-${tagTypes[tagSizeIndex]}`"
-						          :size="`is-${tagSizeKey}`"
+						       :rounded="preferRounded"
+						       :key="tagSizeIndex"
+						       :type="`is-${tagTypes[tagSizeIndex]}`"
+						       :size="`is-${tagSizeKey}`"
 						>
 							{{ tagSizeKey }} Tag
 						</b-tag>
@@ -26,9 +33,9 @@
 				<bsg-subsection title="Semantic Tags">
 					<div class="tags">
 						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
-						          :rounded="preferRounded"
-						          :key="tagTypeIndex"
-						          :type="`is-${tagTypeKey}`">
+						       :rounded="preferRounded"
+						       :key="tagTypeIndex"
+						       :type="`is-${tagTypeKey}`">
 							{{ tagTypeKey }} Tag
 						</b-tag>
 					</div>
@@ -37,9 +44,9 @@
 				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Tags`">
 					<div class="tags">
 						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
-						          :rounded="!preferRounded"
-						          :key="tagTypeIndex"
-						          :type="`is-${tagTypeKey}`">
+						       :rounded="!preferRounded"
+						       :key="tagTypeIndex"
+						       :type="`is-${tagTypeKey}`">
 							{{ tagTypeKey }} Tag
 						</b-tag>
 					</div>
@@ -117,7 +124,7 @@ They had crossed the icy peaks on whose templed slopes
 they had once worshipped and roamed among the tree-ferns.
 They had found their dead city brooding under its curse, and had read its carven latter days as we had done.</pre>
 					<p>They had tried to reach their living fellows in fabled depths of blackness they had never seen—and what had they found?</p>
-					<hr />
+					<hr/>
 					<p>All this flashed in unison through the thoughts of Danforth and me as we looked from those headless, slime-coated shapes to the loathsome palimpsest sculptures and the diabolical dot-groups of fresh slime on the wall beside them—looked and understood what must have triumphed and survived down there in the Cyclopean water-city of that nighted, penguin-fringed abyss, whence even now a sinister curling mist had begun to belch pallidly as if in answer to Danforth's hysterical scream.</p>
 				</div>
 			</bsg-section>
@@ -280,7 +287,8 @@ They had found their dead city brooding under its curse, and had read its carven
 
 			</bsg-section>
 
-			<bsg-section title="Inverted Buttons" inverted>
+			<bsg-section title="Inverted Buttons"
+			             inverted>
 
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">
@@ -320,76 +328,142 @@ They had found their dead city brooding under its curse, and had read its carven
 				</bsg-subsection>
 
 			</bsg-section>
+
+			<bsg-section title="Dropdowns">
+				<bsg-subsection title="Semantic Dropdowns">
+					<b-dropdown
+						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						:key="buttonTypeIndex"
+					>
+						<b-button
+							:rounded="preferRounded"
+							:type="`is-${buttonTypeKey}`"
+							icon-right="caret-down"
+							slot="trigger"
+						>
+							{{ buttonTypeKey }}
+						</b-button>
+
+						<b-dropdown-item
+							v-for="(item, itemIndex) in dropdownItems"
+							:key="itemIndex"
+							:separator="item.separator"
+							:disabled="item.disabled"
+						>{{ item.label }}</b-dropdown-item>
+					</b-dropdown>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Dropdown`">
+					<b-dropdown
+						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						:key="buttonTypeIndex"
+					>
+						<b-button
+							:rounded="!preferRounded"
+							:type="`is-${buttonTypeKey}`"
+							icon-right="caret-down"
+							slot="trigger"
+						>
+							{{ buttonTypeKey }}
+						</b-button>
+
+						<b-dropdown-item
+							v-for="(item, itemIndex) in dropdownItems"
+							:key="itemIndex"
+							:separator="item.separator"
+							:disabled="item.disabled"
+						>{{ item.label }}</b-dropdown-item>
+					</b-dropdown>
+				</bsg-subsection>
+			</bsg-section>
+
 		</main>
 	</div>
 </template>
 
 <script lang="ts">
-	import Vue from "vue";
+	import Vue from 'vue';
 	import {
+		CORE_SEMANTIC_TYPES,
 		DEFAULT_BUTTON_ICONS,
 		DEFAULT_BUTTON_SIZES,
 		DEFAULT_BUTTON_TYPES,
+		DEFAULT_DIALOG_SIZES,
+		DEFAULT_DROPDOWN_ITEMS,
 		DEFAULT_TAG_TYPES,
 		DEFAULT_TITLE_SIZES,
 	} from '@/constants';
 
 	import BsgSection from './BsgSection.vue';
 	import BsgSubsection from './BsgSubsection.vue';
+	import DialogModal from './DialogModal.vue';
 
 	export default Vue.extend({
-		name: "BuefyStyleGuide",
+		name      : 'BuefyStyleGuide',
 		components: {
 			BsgSection,
 			BsgSubsection,
+			DialogModal,
 		},
 		data() {
 			return {
-				titlePairOffset: 2,
-				tagState: Array(this.tagTypes.length).fill(true),
+				titlePairOffset : 2,
+				tagState        : Array(this.tagTypes.length).fill(true),
 				attachedTagState: Array(this.tagTypes.length).fill(true),
 			};
 		},
-		props: {
+		props     : {
 			// Should rounded buttons be used as the standard button type?
 			preferRounded: {
-				type: Boolean,
+				type   : Boolean,
 				default: false,
 			},
-			title: {
-				type: String,
+			title        : {
+				type   : String,
 				default: 'Buefy Style Guide',
 			},
-			subtitle: {
-				type: String,
+			subtitle     : {
+				type   : String,
 				default: 'You\'re looking good today',
 			},
-			buttonTypes: {
-				type: Array,
+			buttonTypes  : {
+				type   : Array,
 				default: () => DEFAULT_BUTTON_TYPES,
 			},
-			buttonSizes: {
-				type: Array,
+			buttonSizes  : {
+				type   : Array,
 				default: () => DEFAULT_BUTTON_SIZES,
 			},
-			buttonIcons: {
-				type: Array,
+			buttonIcons  : {
+				type   : Array,
 				default: () => DEFAULT_BUTTON_ICONS,
 			},
-			titleSizes: {
-				type: Array,
+			titleSizes   : {
+				type   : Array,
 				default: () => DEFAULT_TITLE_SIZES,
 			},
-			tagTypes: {
-				type: Array,
+			tagTypes     : {
+				type   : Array,
 				default: () => DEFAULT_TAG_TYPES,
 			},
-			tagSizes: {
-				type: Array,
+			tagSizes     : {
+				type   : Array,
 				default: () => DEFAULT_BUTTON_SIZES,
 			},
+			dropdownItems     : {
+				type   : Array,
+				default: () => DEFAULT_DROPDOWN_ITEMS,
+			},
+			dialogSizes : {
+				type : Array,
+				default: () => DEFAULT_DIALOG_SIZES,
+			},
+			semanticTypes : {
+				type : Array,
+				default: () => CORE_SEMANTIC_TYPES,
+			},
 		},
-		methods: {
+		methods   : {
 			getIconCode(index: number) {
 				return this.buttonIcons[index % this.buttonIcons.length];
 			},
@@ -408,7 +482,7 @@ They had found their dead city brooding under its curse, and had read its carven
 
 	.buefy-style-guide {
 		&__body {
-			padding:$spacer 0;
+			padding: $spacer 0;
 		}
 
 		.button,
@@ -417,8 +491,8 @@ They had found their dead city brooding under its curse, and had read its carven
 		}
 
 		.content {
-			max-width:$body-size * 43;
-			margin:0 auto;
+			max-width: $body-size * 43;
+			margin: 0 auto;
 		}
 	}
 </style>

@@ -1,3 +1,11 @@
+export const CORE_SEMANTIC_TYPES = [
+	'primary',
+	'success',
+	'info',
+	'warning',
+	'danger',
+];
+
 export const DEFAULT_BUTTON_TYPES = [
 	'default',
 	'primary',
@@ -40,4 +48,30 @@ export const DEFAULT_BUTTON_ICONS = [
 
 export const DEFAULT_TITLE_SIZES = [
 	1, 2, 3, 4, 5, 6, 7,
+];
+
+export const DEFAULT_DROPDOWN_ITEMS = [
+	{
+		label: 'Gasoline-driven tekeli-li',
+	},
+	{
+		label   : 'Especially hideously',
+		disabled: true,
+	},
+	{
+		label    : 'Re-sculptured antarctic',
+		separator: true,
+	},
+	{
+		label: 'Unprecedented beardmore',
+	},
+	{
+		label: 'Gastropods disturbing',
+	},
+];
+
+export const DEFAULT_DIALOG_SIZES = [
+	'small',
+	'medium',
+	'large',
 ];

@@ -10,7 +10,7 @@
 					class="card-header"
 					role="button">
 					<div class="card-header-title">
-						<h1 class="title is-3">{{ title }}</h1>
+						<h1 class="title is-4">{{ title }}</h1>
 					</div>
 					<a class="card-header-icon"
 					   v-show="props.open">

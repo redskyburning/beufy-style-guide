@@ -3,8 +3,9 @@ import Buefy from 'buefy';
 
 import './assets/scss/global.scss';
 import App from './App.vue';
+import {buefyConfig} from './buefy-config';
 
-Vue.use(Buefy);
+Vue.use(Buefy, buefyConfig);
 
 Vue.config.productionTip = false;
 
