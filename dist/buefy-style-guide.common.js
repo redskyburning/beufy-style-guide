@@ -231,11 +231,11 @@ var __vue_staticRenderFns__ = [];
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-ffd5d600_0", { source: ".bsg-section+.bsg-section{margin-top:2rem}.bsg-section.is-inverted .bsg-section__body{background-color:#4a4a4a}.bsg-section.is-inverted .bsg-section__body .subtitle,.bsg-section.is-inverted .bsg-section__body .title{color:#fff}", map: undefined, media: undefined });
+    inject("data-v-c70c4648_0", { source: ".bsg-section+.bsg-section[data-v-c70c4648]{margin-top:2rem}.bsg-section.is-inverted .bsg-section__body[data-v-c70c4648]{background-color:#4a4a4a}.bsg-section.is-inverted .bsg-section__body .subtitle[data-v-c70c4648],.bsg-section.is-inverted .bsg-section__body .title[data-v-c70c4648]{color:#fff}", map: undefined, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = undefined;
+  const __vue_scope_id__ = "data-v-c70c4648";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
