@@ -1,5 +1,5 @@
 /*!
- * buefy-style-guide v0.1.0 
+ * buefy-style-guide v0.2.0 
  * (c) 2019 
  * Released under the undefined License.
  */
@@ -492,7 +492,7 @@ var __vue_staticRenderFns__$3 = [];
     undefined
   );
 
-var version = '0.1.0';
+var version = '0.2.0';
 
 var install = function install(Vue) {
   Vue.component('buefy-style-guide', BuefyStyleGuide);
