@@ -1,13 +1,17 @@
-import Vue from 'vue'
-import App from '~entry'
-import plugin from '../src/index'
+import Vue from 'vue';
+import Buefy from 'buefy';
 
-Vue.use(plugin)
+import '../src/assets/app.scss';
+import App from '../src/App.vue';
+import plugin from '../src/index';
 
-Vue.config.productionTip = false
+Vue.use(Buefy);
+Vue.use(plugin);
+
+Vue.config.productionTip = false;
 
 new Vue({
   // NOTE: if you need to inject as option, you can set here!
   // plugin,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

@@ -1,6 +1,6 @@
 /*!
- * buefy-style-guide v0.2.0 
- * (c) 2019 
+ * buefy-style-guide v0.2.1 
+ * (c) 2019 Ben Webb
  * Released under the undefined License.
  */
 'use strict';
@@ -169,6 +169,58 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
 
 var normalizeComponent_1 = normalizeComponent;
 
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+
+function createInjector(context) {
+  return function (id, style) {
+    return addStyle(id, style);
+  };
+}
+
+var HEAD = document.head || document.getElementsByTagName('head')[0];
+var styles = {};
+
+function addStyle(id, css) {
+  var group = isOldIE ? css.media || 'default' : id;
+  var style = styles[group] || (styles[group] = {
+    ids: new Set(),
+    styles: []
+  });
+
+  if (!style.ids.has(id)) {
+    style.ids.add(id);
+    var code = css.source;
+
+    if (css.map) {
+      // https://developer.chrome.com/devtools/docs/javascript-debugging
+      // this makes source maps inside style tags work properly in Chrome
+      code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'; // http://stackoverflow.com/a/26603875
+
+      code += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) + ' */';
+    }
+
+    if (!style.element) {
+      style.element = document.createElement('style');
+      style.element.type = 'text/css';
+      if (css.media) style.element.setAttribute('media', css.media);
+      HEAD.appendChild(style.element);
+    }
+
+    if ('styleSheet' in style.element) {
+      style.styles.push(code);
+      style.element.styleSheet.cssText = style.styles.filter(Boolean).join('\n');
+    } else {
+      var index = style.ids.size - 1;
+      var textNode = document.createTextNode(code);
+      var nodes = style.element.childNodes;
+      if (nodes[index]) style.element.removeChild(nodes[index]);
+      if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
+    }
+  }
+}
+
+var browser = createInjector;
+
 /* script */
 const __vue_script__ = script;
 
@@ -177,15 +229,17 @@ var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=
 var __vue_staticRenderFns__ = [];
 
   /* style */
-  const __vue_inject_styles__ = undefined;
+  const __vue_inject_styles__ = function (inject) {
+    if (!inject) return
+    inject("data-v-c70c4648_0", { source: ".bsg-section+.bsg-section[data-v-c70c4648]{margin-top:2rem}.bsg-section.is-inverted .bsg-section__body[data-v-c70c4648]{background-color:#4a4a4a}.bsg-section.is-inverted .bsg-section__body .subtitle[data-v-c70c4648],.bsg-section.is-inverted .bsg-section__body .title[data-v-c70c4648]{color:#fff}", map: undefined, media: undefined });
+
+  };
   /* scoped */
-  const __vue_scope_id__ = "data-v-b547ec52";
+  const __vue_scope_id__ = "data-v-c70c4648";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
   const __vue_is_functional_template__ = false;
-  /* style inject */
-  
   /* style inject SSR */
   
 
@@ -197,7 +251,7 @@ var __vue_staticRenderFns__ = [];
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
-    undefined,
+    browser,
     undefined
   );
 
@@ -231,15 +285,17 @@ var __vue_render__$1 = function () {var _vm=this;var _h=_vm.$createElement;var _
 var __vue_staticRenderFns__$1 = [];
 
   /* style */
-  const __vue_inject_styles__$1 = undefined;
+  const __vue_inject_styles__$1 = function (inject) {
+    if (!inject) return
+    inject("data-v-03bc9595_0", { source: ".bsg-subsection+.bsg-subsection{margin-top:2rem}", map: undefined, media: undefined });
+
+  };
   /* scoped */
   const __vue_scope_id__$1 = undefined;
   /* module identifier */
   const __vue_module_identifier__$1 = undefined;
   /* functional template */
   const __vue_is_functional_template__$1 = false;
-  /* style inject */
-  
   /* style inject SSR */
   
 
@@ -251,7 +307,7 @@ var __vue_staticRenderFns__$1 = [];
     __vue_scope_id__$1,
     __vue_is_functional_template__$1,
     __vue_module_identifier__$1,
-    undefined,
+    browser,
     undefined
   );
 
@@ -470,15 +526,17 @@ var __vue_render__$3 = function () {var _vm=this;var _h=_vm.$createElement;var _
 var __vue_staticRenderFns__$3 = [];
 
   /* style */
-  const __vue_inject_styles__$3 = undefined;
+  const __vue_inject_styles__$3 = function (inject) {
+    if (!inject) return
+    inject("data-v-4b63880c_0", { source: ".buefy-style-guide__body[data-v-4b63880c]{padding:2rem 0}.buefy-style-guide[data-v-4b63880c]  .button{text-transform:capitalize}", map: undefined, media: undefined });
+
+  };
   /* scoped */
-  const __vue_scope_id__$3 = "data-v-08278de9";
+  const __vue_scope_id__$3 = "data-v-4b63880c";
   /* module identifier */
   const __vue_module_identifier__$3 = undefined;
   /* functional template */
   const __vue_is_functional_template__$3 = false;
-  /* style inject */
-  
   /* style inject SSR */
   
 
@@ -490,11 +548,11 @@ var __vue_staticRenderFns__$3 = [];
     __vue_scope_id__$3,
     __vue_is_functional_template__$3,
     __vue_module_identifier__$3,
-    undefined,
+    browser,
     undefined
   );
 
-var version = '0.2.0';
+var version = '0.2.1';
 
 var install = function install(Vue) {
   Vue.component('buefy-style-guide', BuefyStyleGuide);

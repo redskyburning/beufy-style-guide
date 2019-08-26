@@ -1,6 +1,7 @@
 {
   "name": "buefy-style-guide",
   "version": "0.2.1",
+  "author": "Ben Webb",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,14 +10,14 @@
     "prepublish": "vue-cli-service lint && vue-cli-service build",
     "start": "vue-cli-service serve"
   },
-  "main": "dist/bsg.common.js",
-  "module": "dist/bsg.esm.js",
-  "unpkg": "dist/bsg.umd.min.js",
+  "main": "dist/buefy-style-guide.common.js",
+  "module": "dist/buefy-style-guide.esm.js",
+  "unpkg": "dist/buefy-style-guide.umd.min.js",
   "files": [
-    "dist/bsg.common.js",
-    "dist/bsg.umd.min.js",
-    "dist/bsg.umd.js",
-    "dist/bsg.esm.js",
+    "dist/buefy-style-guide.common.js",
+    "dist/buefy-style-guide.umd.min.js",
+    "dist/buefy-style-guide.umd.js",
+    "dist/buefy-style-guide.esm.js",
     "src"
   ],
   "dependencies": {
@@ -37,6 +38,6 @@
     "vue-cli-plugin-p11n": "^0.4.0",
     "vue-template-compiler": "^2.6.10"
   },
-  "jsdelivr": "dist/bsg.umd.min.js",
+  "jsdelivr": "dist/buefy-style-guide.umd.min.js",
   "sideeffects": false
 }
