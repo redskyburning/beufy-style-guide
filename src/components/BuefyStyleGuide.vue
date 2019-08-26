@@ -9,12 +9,232 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
-			<bsg-section title="Dialogs & Modals"
-				open>
-				<dialog-modal
-					:dialog-sizes="dialogSizes"
-					:types="semanticTypes"
-				/>
+
+			<bsg-section title="Buttons" open>
+
+				<bsg-subsection title="Semantic Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }} Button
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Hovered Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-hovered"
+						          :key="buttonTypeIndex"
+						          :rounded="preferRounded"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Focused Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-focused"
+						          :key="buttonTypeIndex"
+						          :rounded="preferRounded"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Active Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-active"
+						          :key="buttonTypeIndex"
+						          :rounded="preferRounded"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Disabled Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          disabled
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Button Sizes">
+					<div class="buttons">
+						<b-button v-for="(buttonSizeKey, buttonSizeIndex) in buttonSizes"
+						          type="is-primary"
+						          :rounded="preferRounded"
+						          :key="buttonSizeIndex"
+						          :size="`is-${buttonSizeKey}`">
+							{{ buttonSizeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Icon Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          icon-pack="fas"
+						          :icon-left="buttonTypeIndex % 2 === 0 ? getIconCode(buttonTypeIndex) : ''"
+						          :icon-right="buttonTypeIndex % 2 !== 0 ? getIconCode(buttonTypeIndex) : ''"
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ getIconCode(buttonTypeIndex) }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Outlined Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          outlined
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Focused Outlined Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          class="is-focused"
+						          outlined
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          :rounded="!preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Loading Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          loading
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+			</bsg-section>
+
+			<bsg-section title="Inverted Buttons"
+			             inverted>
+
+				<bsg-subsection title="Semantic Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          inverted
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection title="Disabled Buttons">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          disabled
+						          inverted
+						          :rounded="preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
+					<div class="buttons">
+						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						          inverted
+						          :rounded="!preferRounded"
+						          :key="buttonTypeIndex"
+						          :type="`is-${buttonTypeKey}`">
+							{{ buttonTypeKey }}
+						</b-button>
+					</div>
+				</bsg-subsection>
+
+			</bsg-section>
+
+			<bsg-section title="Dropdowns">
+				<bsg-subsection title="Semantic Dropdowns">
+					<b-dropdown
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
+					>
+						<b-button
+								:rounded="preferRounded"
+								:type="`is-${buttonTypeKey}`"
+								icon-right="caret-down"
+								slot="trigger"
+						>
+							{{ buttonTypeKey }}
+						</b-button>
+
+						<b-dropdown-item
+								v-for="(item, itemIndex) in dropdownItems"
+								:key="itemIndex"
+								:separator="item.separator"
+								:disabled="item.disabled"
+						>{{ item.label }}</b-dropdown-item>
+					</b-dropdown>
+				</bsg-subsection>
+
+				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Dropdown`">
+					<b-dropdown
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
+					>
+						<b-button
+								:rounded="!preferRounded"
+								:type="`is-${buttonTypeKey}`"
+								icon-right="caret-down"
+								slot="trigger"
+						>
+							{{ buttonTypeKey }}
+						</b-button>
+
+						<b-dropdown-item
+								v-for="(item, itemIndex) in dropdownItems"
+								:key="itemIndex"
+								:separator="item.separator"
+								:disabled="item.disabled"
+						>{{ item.label }}</b-dropdown-item>
+					</b-dropdown>
+				</bsg-subsection>
 			</bsg-section>
 
 			<bsg-section title="Tags">
@@ -151,231 +371,11 @@ They had found their dead city brooding under its curse, and had read its carven
 				</bsg-subsection>
 			</bsg-section>
 
-			<bsg-section title="Buttons">
-
-				<bsg-subsection title="Semantic Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }} Button
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Hovered Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-hovered"
-							:key="buttonTypeIndex"
-							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Focused Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-focused"
-							:key="buttonTypeIndex"
-							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Active Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-active"
-							:key="buttonTypeIndex"
-							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Disabled Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							disabled
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Button Sizes">
-					<div class="buttons">
-						<b-button v-for="(buttonSizeKey, buttonSizeIndex) in buttonSizes"
-							type="is-primary"
-							:rounded="preferRounded"
-							:key="buttonSizeIndex"
-							:size="`is-${buttonSizeKey}`">
-							{{ buttonSizeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Icon Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							icon-pack="fas"
-							:icon-left="buttonTypeIndex % 2 === 0 ? getIconCode(buttonTypeIndex) : ''"
-							:icon-right="buttonTypeIndex % 2 !== 0 ? getIconCode(buttonTypeIndex) : ''"
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ getIconCode(buttonTypeIndex) }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Outlined Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							outlined
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Focused Outlined Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-focused"
-							outlined
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							:rounded="!preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Loading Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							loading
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-			</bsg-section>
-
-			<bsg-section title="Inverted Buttons"
-				inverted>
-
-				<bsg-subsection title="Semantic Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							inverted
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection title="Disabled Buttons">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							disabled
-							inverted
-							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
-					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							inverted
-							:rounded="!preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
-							{{ buttonTypeKey }}
-						</b-button>
-					</div>
-				</bsg-subsection>
-
-			</bsg-section>
-
-			<bsg-section title="Dropdowns">
-				<bsg-subsection title="Semantic Dropdowns">
-					<b-dropdown
-						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-						:key="buttonTypeIndex"
-					>
-						<b-button
-							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`"
-							icon-right="caret-down"
-							slot="trigger"
-						>
-							{{ buttonTypeKey }}
-						</b-button>
-
-						<b-dropdown-item
-							v-for="(item, itemIndex) in dropdownItems"
-							:key="itemIndex"
-							:separator="item.separator"
-							:disabled="item.disabled"
-						>{{ item.label }}</b-dropdown-item>
-					</b-dropdown>
-				</bsg-subsection>
-
-				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Dropdown`">
-					<b-dropdown
-						v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-						:key="buttonTypeIndex"
-					>
-						<b-button
-							:rounded="!preferRounded"
-							:type="`is-${buttonTypeKey}`"
-							icon-right="caret-down"
-							slot="trigger"
-						>
-							{{ buttonTypeKey }}
-						</b-button>
-
-						<b-dropdown-item
-							v-for="(item, itemIndex) in dropdownItems"
-							:key="itemIndex"
-							:separator="item.separator"
-							:disabled="item.disabled"
-						>{{ item.label }}</b-dropdown-item>
-					</b-dropdown>
-				</bsg-subsection>
+			<bsg-section title="Dialogs & Modals">
+				<dialog-modal
+						:dialog-sizes="dialogSizes"
+						:types="semanticTypes"
+				/>
 			</bsg-section>
 
 		</main>
