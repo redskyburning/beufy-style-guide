@@ -1,4 +1,4 @@
-# buefy-style-guide
+# bsg
 
 ## Project setup
 ```
