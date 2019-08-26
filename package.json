@@ -1,26 +1,42 @@
 {
   "name": "buefy-style-guide",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "demo": "vue-cli-service demo",
+    "prepublish": "vue-cli-service lint && vue-cli-service build",
+    "start": "vue-cli-service serve"
   },
+  "main": "dist/bsg.common.js",
+  "module": "dist/bsg.esm.js",
+  "unpkg": "dist/bsg.umd.min.js",
+  "files": [
+    "dist/bsg.common.js",
+    "dist/bsg.umd.min.js",
+    "dist/bsg.umd.js",
+    "dist/bsg.esm.js",
+    "src"
+  ],
   "dependencies": {
-    "buefy": "^0.7.4",
-    "vue": "^2.6.10",
-    "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.1.0"
+    "core-js": "^2.6.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-typescript": "^3.9.0",
-    "@vue/cli-service": "^3.9.0",
-    "node-sass": "^4.9.0",
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-eslint": "^10.0.1",
+    "buefy": "^0.8.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.12.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
-    "typescript": "^3.4.3",
-    "vue-cli-plugin-buefy": "^0.3.6",
+    "vue": "^2.6.10",
+    "vue-cli-plugin-p11n": "^0.4.0",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "jsdelivr": "dist/bsg.umd.min.js",
+  "sideeffects": false
 }

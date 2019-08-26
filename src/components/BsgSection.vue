@@ -1,9 +1,9 @@
 <template>
 	<section class="bsg-section"
-	         :class="{ 'is-inverted' : this.inverted }">
+		:class="{ 'is-inverted' : this.inverted }">
 		<div class="container">
 			<b-collapse class="card"
-			            :open="open">
+				:open="open">
 				<div
 					slot="trigger"
 					slot-scope="props"
@@ -13,14 +13,14 @@
 						<h1 class="title is-4">{{ title }}</h1>
 					</div>
 					<a class="card-header-icon"
-					   v-show="props.open">
+						v-show="props.open">
 						<b-icon
 							pack="fas"
 							icon="minus">
 						</b-icon>
 					</a>
 					<a class="card-header-icon"
-					   v-show="!props.open">
+						v-show="!props.open">
 						<b-icon
 							pack="fas"
 							icon="plus">
@@ -35,44 +35,36 @@
 	</section>
 </template>
 
-<script lang="ts">
-	import Vue from "vue";
-
-	export default Vue.extend({
-		name: "BsgSection",
-		data() {
-			return {
-			};
+<script>
+export default {
+	name: "BsgSection",
+	data() {
+		return {
+		};
+	},
+	props: {
+		title : {
+			type: String,
+			required: true,
 		},
-		props: {
-			title : {
-				type: String,
-				required: true,
-			},
-			open : {
-				type: Boolean,
-				default: false,
-			},
-			inverted : {
-				type: Boolean,
-				default: false,
-			},
+		open : {
+			type: Boolean,
+			default: false,
 		},
-	});
+		inverted : {
+			type: Boolean,
+			default: false,
+		},
+	},
+};
 </script>
 
-<style lang="scss">
-	@import '../assets/scss/includes';
+<style lang="scss" scoped>
+	/*@import '../assets/scss/includes';
 
 	.bsg-section {
 		& + & {
 			margin-top:$spacer;
-		}
-
-		&__header {
-			padding-bottom:$spacer / 4;
-			margin-bottom:$spacer;
-			border-bottom:3px solid black;
 		}
 
 		&.is-inverted &__body {
@@ -83,5 +75,5 @@
 				color:$white;
 			}
 		}
-	}
+	}*/
 </style>
