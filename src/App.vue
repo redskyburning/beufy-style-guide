@@ -1,27 +1,21 @@
 <template>
-	<div class="app">
-		<buefy-style-guide
-		></buefy-style-guide>
+	<div id="app">
+		<buefy-style-guide></buefy-style-guide>
 	</div>
 </template>
 
-<script lang="ts">
-	import {
-		Component,
-		Vue,
-	} from 'vue-property-decorator';
-	import BuefyStyleGuide from './components/BuefyStyleGuide.vue';
+<script>
 
-	@Component({
-		components: {
-			BuefyStyleGuide,
-		},
-	})
-	export default class App extends Vue {
-	}
 </script>
 
+
 <style lang="scss">
-	.app {
-	}
+#app {
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	margin-top: 60px;
+}
 </style>
