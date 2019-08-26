@@ -23,11 +23,11 @@ export default {
 </script>
 
 <style lang="scss">
-/*@import '../assets/scss/includes';
+@import '../assets/includes';
 
 .bsg-subsection {
 	& + & {
 		margin-top:$spacer;
 	}
-}*/
+}
 </style>

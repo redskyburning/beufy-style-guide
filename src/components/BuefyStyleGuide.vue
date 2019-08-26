@@ -478,21 +478,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	/*@import '../assets/scss/includes';
+	@import '../assets/includes';
 
 	.buefy-style-guide {
 		&__body {
 			padding: $spacer 0;
 		}
 
-		.button,
-		.tag {
-			text-transform: capitalize;
-		}
 
-		.content {
-			max-width: $body-size * 43;
-			margin: 0 auto;
+		::v-deep {
+			.button {
+				text-transform:capitalize;
+			}
 		}
-	}*/
+	}
 </style>
