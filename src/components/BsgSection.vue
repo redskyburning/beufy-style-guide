@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	/*@import '../assets/scss/includes';
+	@import '../assets/includes';
 
 	.bsg-section {
 		& + & {
@@ -75,5 +75,5 @@ export default {
 				color:$white;
 			}
 		}
-	}*/
+	}
 </style>
