@@ -55,15 +55,14 @@
 
 				<bsg-subsection title="Closeable Tags">
 					<div class="tags">
-						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
+						<b-tag v-for="(tagTypeKey, tagTypeIndex) in closeableTags"
 							:rounded="preferRounded"
-							:key="tagTypeIndex"
+							:key="tagTypeKey"
 							:type="`is-${tagTypeKey}`"
-							v-if="tagState[tagTypeIndex]"
 							@close="closeTab(tagTypeIndex)"
 							closable
 						>
-							{{ tagTypeKey }} Tag {{ tagState[tagTypeIndex] }}
+							{{ tagTypeKey }} Tag
 						</b-tag>
 					</div>
 				</bsg-subsection>
@@ -71,9 +70,9 @@
 				<bsg-subsection title="Attached Closeable Tags">
 					<div class="field is-grouped is-grouped-multiline">
 						<div class="control"
-							v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
+							v-for="(tagTypeKey, tagTypeIndex) in attachedCloseableTags"
 							:key="tagTypeIndex"
-							v-if="attachedTagState[tagTypeIndex]">
+						>
 							<b-tag :rounded="preferRounded"
 								:type="`is-${tagTypeKey}`"
 								closable
@@ -350,7 +349,8 @@ They had found their dead city brooding under its curse, and had read its carven
 							:key="itemIndex"
 							:separator="item.separator"
 							:disabled="item.disabled"
-						>{{ item.label }}</b-dropdown-item>
+						>{{ item.label }}
+						</b-dropdown-item>
 					</b-dropdown>
 				</bsg-subsection>
 
@@ -373,7 +373,8 @@ They had found their dead city brooding under its curse, and had read its carven
 							:key="itemIndex"
 							:separator="item.separator"
 							:disabled="item.disabled"
-						>{{ item.label }}</b-dropdown-item>
+						>{{ item.label }}
+						</b-dropdown-item>
 					</b-dropdown>
 				</bsg-subsection>
 			</bsg-section>
@@ -450,17 +451,25 @@ export default {
 			type   : Array,
 			default: () => DEFAULT_BUTTON_SIZES,
 		},
-		dropdownItems     : {
+		dropdownItems: {
 			type   : Array,
 			default: () => DEFAULT_DROPDOWN_ITEMS,
 		},
-		dialogSizes : {
-			type : Array,
+		dialogSizes  : {
+			type   : Array,
 			default: () => DEFAULT_DIALOG_SIZES,
 		},
-		semanticTypes : {
-			type : Array,
+		semanticTypes: {
+			type   : Array,
 			default: () => CORE_SEMANTIC_TYPES,
+		},
+	},
+	computed  : {
+		closeableTags() {
+			return this.tagTypes.filter((tagTypeKey, tagTypeIndex) => this.tagState[tagTypeIndex]);
+		},
+		attachedCloseableTags() {
+			return this.tagTypes.filter((tagTypeKey, tagTypeIndex) => this.attachedTagState[tagTypeIndex]);
 		},
 	},
 	methods   : {
@@ -477,7 +486,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss"
+       scoped>
 	@import '../assets/includes';
 
 	.buefy-style-guide {
@@ -487,8 +497,9 @@ export default {
 
 
 		::v-deep {
-			.button {
-				text-transform:capitalize;
+			.button,
+			.tag {
+				text-transform: capitalize;
 			}
 		}
 	}
