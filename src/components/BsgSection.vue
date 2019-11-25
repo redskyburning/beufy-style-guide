@@ -73,9 +73,11 @@ export default {
 		&.is-inverted &__body {
 			background-color:$grey-dark;
 
-			.title,
-			.subtitle {
-				color:$white;
+			::v-deep {
+				.title,
+				.subtitle {
+					color:$white;
+				}
 			}
 		}
 	}

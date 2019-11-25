@@ -10,7 +10,8 @@
 		</header>
 		<main class="buefy-style-guide__body">
 
-			<bsg-section title="Buttons" open>
+			<bsg-section title="Buttons"
+			             open>
 
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">

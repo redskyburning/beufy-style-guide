@@ -229,11 +229,11 @@ var __vue_staticRenderFns__ = [];
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-27933192_0", { source: ".bsg-section[data-v-27933192]{padding-top:0;padding-bottom:0}.bsg-section+.bsg-section[data-v-27933192]{margin-top:2rem}.bsg-section.is-inverted .bsg-section__body[data-v-27933192]{background-color:#4a4a4a}.bsg-section.is-inverted .bsg-section__body .subtitle[data-v-27933192],.bsg-section.is-inverted .bsg-section__body .title[data-v-27933192]{color:#fff}", map: undefined, media: undefined });
+    inject("data-v-603a267e_0", { source: ".bsg-section[data-v-603a267e]{padding-top:0;padding-bottom:0}.bsg-section+.bsg-section[data-v-603a267e]{margin-top:2rem}.bsg-section.is-inverted .bsg-section__body[data-v-603a267e]{background-color:#4a4a4a}.bsg-section.is-inverted .bsg-section__body[data-v-603a267e]  .subtitle,.bsg-section.is-inverted .bsg-section__body[data-v-603a267e]  .title{color:#fff}", map: undefined, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = "data-v-27933192";
+  const __vue_scope_id__ = "data-v-603a267e";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
