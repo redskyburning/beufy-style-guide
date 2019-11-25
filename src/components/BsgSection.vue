@@ -1,5 +1,5 @@
 <template>
-	<section class="bsg-section"
+	<section class="bsg-section section"
 		:class="{ 'is-inverted' : this.inverted }">
 		<div class="container">
 			<b-collapse class="card"
@@ -63,6 +63,9 @@ export default {
 	@import '../assets/includes';
 
 	.bsg-section {
+		padding-top:0;
+		padding-bottom:0;
+
 		& + & {
 			margin-top:$spacer;
 		}
