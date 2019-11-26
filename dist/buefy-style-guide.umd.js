@@ -548,11 +548,11 @@
 	  /* style */
 	  const __vue_inject_styles__$3 = function (inject) {
 	    if (!inject) return
-	    inject("data-v-fa880cf8_0", { source: ".buefy-style-guide__body[data-v-fa880cf8]{padding:2rem 0}.buefy-style-guide[data-v-fa880cf8]  .button,.buefy-style-guide[data-v-fa880cf8]  .tag{text-transform:capitalize}", map: undefined, media: undefined });
+	    inject("data-v-d180bc3a_0", { source: ".buefy-style-guide__body[data-v-d180bc3a]{padding:2rem 0}.buefy-style-guide[data-v-d180bc3a]  .button,.buefy-style-guide[data-v-d180bc3a]  .tag{text-transform:capitalize}", map: undefined, media: undefined });
 
 	  };
 	  /* scoped */
-	  const __vue_scope_id__$3 = "data-v-fa880cf8";
+	  const __vue_scope_id__$3 = "data-v-d180bc3a";
 	  /* module identifier */
 	  const __vue_module_identifier__$3 = undefined;
 	  /* functional template */
