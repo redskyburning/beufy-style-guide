@@ -3,10 +3,10 @@
 		<bsg-subsection title="Alert Dialogs">
 			<div class="buttons">
 				<b-button
-						v-for="(dialogSize, sizeIndex) in dialogSizes"
-						:key="sizeIndex"
-						:type="getTypeString(sizeIndex)"
-						@click="openAlert(`is-${dialogSize}`, getTypeString(sizeIndex))"
+					v-for="(dialogSize, sizeIndex) in dialogSizes"
+					:key="sizeIndex"
+					:type="getTypeString(sizeIndex)"
+					@click="openAlert(`is-${dialogSize}`, getTypeString(sizeIndex))"
 				>{{ dialogSize }} Alert
 				</b-button>
 			</div>
@@ -15,10 +15,10 @@
 		<bsg-subsection title="Confirm Dialogs">
 			<div class="buttons">
 				<b-button
-						v-for="(dialogSize, sizeIndex) in dialogSizes"
-						:key="sizeIndex"
-						:type="getTypeString(sizeIndex)"
-						@click="openConfirm(`is-${dialogSize}`, getTypeString(sizeIndex))"
+					v-for="(dialogSize, sizeIndex) in dialogSizes"
+					:key="sizeIndex"
+					:type="getTypeString(sizeIndex)"
+					@click="openConfirm(`is-${dialogSize}`, getTypeString(sizeIndex))"
 				>{{ dialogSize }} Confirm
 				</b-button>
 			</div>
@@ -27,10 +27,10 @@
 		<bsg-subsection title="Prompt Dialogs">
 			<div class="buttons">
 				<b-button
-						v-for="(dialogSize, sizeIndex) in dialogSizes"
-						:key="sizeIndex"
-						:type="getTypeString(sizeIndex)"
-						@click="openPrompt(`is-${dialogSize}`, getTypeString(sizeIndex))"
+					v-for="(dialogSize, sizeIndex) in dialogSizes"
+					:key="sizeIndex"
+					:type="getTypeString(sizeIndex)"
+					@click="openPrompt(`is-${dialogSize}`, getTypeString(sizeIndex))"
 				>{{ dialogSize }} Confirm
 				</b-button>
 			</div>
@@ -39,14 +39,14 @@
 		<bsg-subsection title="Modal">
 			<div class="buttons">
 				<b-button
-						type="is-primary"
-						@click="imageModalActive = true"
+					type="is-primary"
+					@click="imageModalActive = true"
 				>
 					Image Modal
 				</b-button>
 				<b-button
-						type="is-success"
-						@click="cardModalActive = true"
+					type="is-success"
+					@click="cardModalActive = true"
 				>
 					Card Modal
 				</b-button>
@@ -54,13 +54,13 @@
 		</bsg-subsection>
 
 		<b-modal :active.sync="imageModalActive"
-		         :width="640"
-		         scroll="keep">
+			:width="640"
+			scroll="keep">
 			<div class="card">
 				<div class="card-image">
 					<figure class="image is-4by3">
 						<img src="https://picsum.photos/1280/900"
-						     alt="Image">
+							alt="Image">
 					</figure>
 				</div>
 				<div class="card-content">
@@ -68,7 +68,7 @@
 						<div class="media-left">
 							<figure class="image is-48x48">
 								<img src="https://picsum.photos/48/48"
-								     alt="Image">
+									alt="Image">
 							</figure>
 						</div>
 						<div class="media-content">
@@ -85,8 +85,8 @@
 		</b-modal>
 
 		<b-modal :active.sync="cardModalActive"
-		         :width="640"
-		         scroll="keep">
+			:width="640"
+			scroll="keep">
 			<div class="card">
 				<header class="modal-card-head">
 					<p class="modal-card-title">Modal title</p>
@@ -109,72 +109,72 @@
 </template>
 
 <script>
-	import {
-		CORE_SEMANTIC_TYPES,
-		DEFAULT_DIALOG_SIZES,
-	} from '../constants';
-	import BsgSubsection from './BsgSubsection.vue';
+import {
+	CORE_SEMANTIC_TYPES,
+	DEFAULT_DIALOG_SIZES,
+} from '../constants';
+import BsgSubsection from './BsgSubsection.vue';
 
-	export default {
-		name      : 'DialogModal',
-		components: {
-			BsgSubsection,
+export default {
+	name      : 'DialogModal',
+	components: {
+		BsgSubsection,
+	},
+	data() {
+		return {
+			imageModalActive: false,
+			cardModalActive : false,
+		};
+	},
+	props     : {
+		dialogSizes: {
+			type   : Array,
+			default: () => DEFAULT_DIALOG_SIZES,
 		},
-		data() {
-			return {
-				imageModalActive: false,
-				cardModalActive : false,
-			};
+		types      : {
+			type   : Array,
+			default: () => CORE_SEMANTIC_TYPES,
 		},
-		props     : {
-			dialogSizes: {
-				type   : Array,
-				default: () => DEFAULT_DIALOG_SIZES,
-			},
-			types      : {
-				type   : Array,
-				default: () => CORE_SEMANTIC_TYPES,
-			},
+	},
+	methods   : {
+		getTypeString(index) {
+			return `is-${this.types[index]}`;
 		},
-		methods   : {
-			getTypeString(index) {
-				return `is-${this.types[index]}`;
-			},
-			openAlert(dialogSize, dialogType) {
-				this.$buefy.dialog.alert({
-					title      : 'Grotesquely three-fourths luxuriant',
-					message    : 'Circumstance traversed reluctant antarctic foothills descending pertaining longitude immediate. Sculptured potentially organisms directions remembered disturbing disturbingly evidently photograph. Longitude suggestions encountered investigation whispered habitually exaggerations labyrinth sculptures.',
-					confirmText: 'Uh... ok?',
-					type       : dialogType,
-					size       : dialogSize,
-				});
-			},
-			openConfirm(dialogSize, dialogType) {
-				const confirm = this.$buefy.dialog.confirm({
-					title      : 'Inconceivable historical coast-lines',
-					message    : 'Constantine everywhere undoubtedly vegetation omnipresent recoiling residence, ziggurats residence? Buildings photograph happening preparations intervening scattered suggestions, neighboring apparatus?',
-					confirmText: 'Uh... ok?',
-					cancelText : 'Uh... no?',
-					type       : dialogType,
-					size       : dialogSize,
-					onConfirm  : () => this.$toast.open('User confirmed'),
-					onCancel   : () => this.$toast.open('User cancelled'),
-				});
-			},
-			openPrompt(dialogSize, dialogType) {
-				this.$buefy.dialog.prompt({
-					title      : 'Somebody\'s difficult shoggoths',
-					message    : 'Sculptured potentially organisms directions remembered disturbing disturbingly evidently photograph. Longitude suggestions encountered investigation whispered habitually exaggerations labyrinth sculptures.',
-					confirmText: 'Uh... ok?',
-					cancelText : 'Uh... no?',
-					type       : dialogType,
-					size       : dialogSize,
-					onConfirm  : (value) => this.$toast.open(`User says: ${value}`),
-					onCancel   : () => this.$toast.open('User cancelled'),
-				});
-			},
+		openAlert(dialogSize, dialogType) {
+			this.$buefy.dialog.alert({
+				title      : 'Grotesquely three-fourths luxuriant',
+				message    : 'Circumstance traversed reluctant antarctic foothills descending pertaining longitude immediate. Sculptured potentially organisms directions remembered disturbing disturbingly evidently photograph. Longitude suggestions encountered investigation whispered habitually exaggerations labyrinth sculptures.',
+				confirmText: 'Uh... ok?',
+				type       : dialogType,
+				size       : dialogSize,
+			});
 		},
-	};
+		openConfirm(dialogSize, dialogType) {
+			const confirm = this.$buefy.dialog.confirm({
+				title      : 'Inconceivable historical coast-lines',
+				message    : 'Constantine everywhere undoubtedly vegetation omnipresent recoiling residence, ziggurats residence? Buildings photograph happening preparations intervening scattered suggestions, neighboring apparatus?',
+				confirmText: 'Uh... ok?',
+				cancelText : 'Uh... no?',
+				type       : dialogType,
+				size       : dialogSize,
+				onConfirm  : () => this.$toast.open('User confirmed'),
+				onCancel   : () => this.$toast.open('User cancelled'),
+			});
+		},
+		openPrompt(dialogSize, dialogType) {
+			this.$buefy.dialog.prompt({
+				title      : 'Somebody\'s difficult shoggoths',
+				message    : 'Sculptured potentially organisms directions remembered disturbing disturbingly evidently photograph. Longitude suggestions encountered investigation whispered habitually exaggerations labyrinth sculptures.',
+				confirmText: 'Uh... ok?',
+				cancelText : 'Uh... no?',
+				type       : dialogType,
+				size       : dialogSize,
+				onConfirm  : (value) => this.$toast.open(`User says: ${value}`),
+				onCancel   : () => this.$toast.open('User cancelled'),
+			});
+		},
+	},
+};
 </script>
 
 <style lang="scss"
