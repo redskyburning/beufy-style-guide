@@ -1,34 +1,45 @@
 <template>
-	<section class="bsg-section section"
-		:class="{ 'is-inverted' : this.inverted }">
+	<section
+		class="bsg-section section"
+		:class="{ 'is-inverted' : inverted }"
+	>
 		<div class="container">
-			<b-collapse class="card"
-				:open="open">
+			<b-collapse
+				class="card"
+				:open="open"
+			>
 				<div
 					slot="trigger"
 					slot-scope="props"
 					class="card-header"
-					role="button">
+					role="button"
+				>
 					<div class="card-header-title">
-						<h1 class="title is-4">{{ title }}</h1>
+						<h1 class="title is-4">
+							{{ title }}
+						</h1>
 					</div>
-					<a class="card-header-icon"
-						v-show="props.open">
+					<a
+						v-show="props.open"
+						class="card-header-icon"
+					>
 						<b-icon
 							pack="fas"
-							icon="minus">
-						</b-icon>
+							icon="minus"
+						/>
 					</a>
-					<a class="card-header-icon"
-						v-show="!props.open">
+					<a
+						v-show="!props.open"
+						class="card-header-icon"
+					>
 						<b-icon
 							pack="fas"
-							icon="plus">
-						</b-icon>
+							icon="plus"
+						/>
 					</a>
 				</div>
 				<div class="card-content bsg-section__body">
-					<slot></slot>
+					<slot />
 				</div>
 			</b-collapse>
 		</div>
@@ -37,24 +48,24 @@
 
 <script>
 export default {
-	name: "BsgSection",
-	data() {
-		return {
-		};
-	},
+	name: 'BsgSection',
 	props: {
-		title : {
+		title: {
 			type: String,
 			required: true,
 		},
-		open : {
+		open: {
 			type: Boolean,
 			default: false,
 		},
-		inverted : {
+		inverted: {
 			type: Boolean,
 			default: false,
 		},
+	},
+	data() {
+		return {
+		};
 	},
 };
 </script>
