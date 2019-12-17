@@ -3,7 +3,6 @@ import BuefyStyleGuide from './components/BuefyStyleGuide.vue';
 const version = '__VERSION__';
 
 const install = Vue => {
-
 	Vue.component('buefy-style-guide', BuefyStyleGuide);
 };
 

@@ -4,7 +4,7 @@ import Buefy from 'buefy';
 import './assets/app.scss';
 import App from './App.vue';
 import plugin from './index';
-import {buefyConfig} from './buefy-config';
+import { buefyConfig } from './buefy-config';
 
 Vue.use(Buefy, buefyConfig);
 Vue.use(plugin);

@@ -55,11 +55,11 @@ export const DEFAULT_DROPDOWN_ITEMS = [
 		label: 'Gasoline-driven tekeli-li',
 	},
 	{
-		label   : 'Especially hideously',
+		label: 'Especially hideously',
 		disabled: true,
 	},
 	{
-		label    : 'Re-sculptured antarctic',
+		label: 'Re-sculptured antarctic',
 		separator: true,
 	},
 	{

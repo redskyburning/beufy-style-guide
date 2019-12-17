@@ -6,22 +6,28 @@
 		>
 			<div class="hero-body">
 				<div class="container">
-					<h1 class="title">{{ title }}</h1>
-					<h1 class="subtitle">{{ subtitle }}</h1>
+					<h1 class="title">
+						{{ title }}
+					</h1>
+					<h1 class="subtitle">
+						{{ subtitle }}
+					</h1>
 				</div>
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
-
-			<bsg-section title="Buttons"
-				open>
-
+			<bsg-section
+				title="Buttons"
+				open
+			>
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							:rounded="preferRounded"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
 							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:rounded="preferRounded"
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }} Button
 						</b-button>
 					</div>
@@ -29,11 +35,13 @@
 
 				<bsg-subsection title="Hovered Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-hovered"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
 							:key="buttonTypeIndex"
+							class="is-hovered"
 							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -41,11 +49,13 @@
 
 				<bsg-subsection title="Focused Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-focused"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
 							:key="buttonTypeIndex"
+							class="is-focused"
 							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -53,11 +63,13 @@
 
 				<bsg-subsection title="Active Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							class="is-active"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
 							:key="buttonTypeIndex"
+							class="is-active"
 							:rounded="preferRounded"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -65,11 +77,13 @@
 
 				<bsg-subsection title="Disabled Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							disabled
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -77,11 +91,13 @@
 
 				<bsg-subsection title="Button Sizes">
 					<div class="buttons">
-						<b-button v-for="(buttonSizeKey, buttonSizeIndex) in buttonSizes"
+						<b-button
+							v-for="(buttonSizeKey, buttonSizeIndex) in buttonSizes"
+							:key="buttonSizeIndex"
 							type="is-primary"
 							:rounded="preferRounded"
-							:key="buttonSizeIndex"
-							:size="`is-${buttonSizeKey}`">
+							:size="`is-${buttonSizeKey}`"
+						>
 							{{ buttonSizeKey }}
 						</b-button>
 					</div>
@@ -89,13 +105,15 @@
 
 				<bsg-subsection title="Icon Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							icon-pack="fas"
 							:icon-left="buttonTypeIndex % 2 === 0 ? getIconCode(buttonTypeIndex) : ''"
 							:icon-right="buttonTypeIndex % 2 !== 0 ? getIconCode(buttonTypeIndex) : ''"
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ getIconCode(buttonTypeIndex) }}
 						</b-button>
 					</div>
@@ -103,11 +121,13 @@
 
 				<bsg-subsection title="Outlined Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							outlined
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -115,12 +135,14 @@
 
 				<bsg-subsection title="Focused Outlined Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							class="is-focused"
 							outlined
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -128,10 +150,12 @@
 
 				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
-							:rounded="!preferRounded"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
 							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:rounded="!preferRounded"
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -139,28 +163,32 @@
 
 				<bsg-subsection title="Loading Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							loading
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
 				</bsg-subsection>
-
 			</bsg-section>
 
-			<bsg-section title="Inverted Buttons"
-				inverted>
-
+			<bsg-section
+				title="Inverted Buttons"
+				inverted
+			>
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							inverted
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -168,12 +196,14 @@
 
 				<bsg-subsection title="Disabled Buttons">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							disabled
 							inverted
 							:rounded="preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
@@ -181,16 +211,17 @@
 
 				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Buttons`">
 					<div class="buttons">
-						<b-button v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+						<b-button
+							v-for="(buttonTypeKey, buttonTypeIndex) in buttonTypes"
+							:key="buttonTypeIndex"
 							inverted
 							:rounded="!preferRounded"
-							:key="buttonTypeIndex"
-							:type="`is-${buttonTypeKey}`">
+							:type="`is-${buttonTypeKey}`"
+						>
 							{{ buttonTypeKey }}
 						</b-button>
 					</div>
 				</bsg-subsection>
-
 			</bsg-section>
 
 			<bsg-section title="Dropdowns">
@@ -200,10 +231,10 @@
 						:key="buttonTypeIndex"
 					>
 						<b-button
+							slot="trigger"
 							:rounded="preferRounded"
 							:type="`is-${buttonTypeKey}`"
 							icon-right="caret-down"
-							slot="trigger"
 						>
 							{{ buttonTypeKey }}
 						</b-button>
@@ -213,7 +244,8 @@
 							:key="itemIndex"
 							:separator="item.separator"
 							:disabled="item.disabled"
-						>{{ item.label }}
+						>
+							{{ item.label }}
 						</b-dropdown-item>
 					</b-dropdown>
 				</bsg-subsection>
@@ -224,10 +256,10 @@
 						:key="buttonTypeIndex"
 					>
 						<b-button
+							slot="trigger"
 							:rounded="!preferRounded"
 							:type="`is-${buttonTypeKey}`"
 							icon-right="caret-down"
-							slot="trigger"
 						>
 							{{ buttonTypeKey }}
 						</b-button>
@@ -237,7 +269,8 @@
 							:key="itemIndex"
 							:separator="item.separator"
 							:disabled="item.disabled"
-						>{{ item.label }}
+						>
+							{{ item.label }}
 						</b-dropdown-item>
 					</b-dropdown>
 				</bsg-subsection>
@@ -281,28 +314,42 @@ They had crossed the icy peaks on whose templed slopes
 they had once worshipped and roamed among the tree-ferns.
 They had found their dead city brooding under its curse, and had read its carven latter days as we had done.</pre>
 					<p>They had tried to reach their living fellows in fabled depths of blackness they had never seen—and what had they found?</p>
-					<hr/>
+					<hr>
 					<p>All this flashed in unison through the thoughts of Danforth and me as we looked from those headless, slime-coated shapes to the loathsome palimpsest sculptures and the diabolical dot-groups of fresh slime on the wall beside them—looked and understood what must have triumphed and survived down there in the Cyclopean water-city of that nighted, penguin-fringed abyss, whence even now a sinister curling mist had begun to belch pallidly as if in answer to Danforth's hysterical scream.</p>
 				</div>
 			</bsg-section>
 
 			<bsg-section title="Titles">
 				<bsg-subsection>
-					<h1 v-for="(titleSize, titleI) in titleSizes"
+					<h1
+						v-for="(titleSize, titleI) in titleSizes"
 						:key="titleI"
-						:class="`title is-${titleSize}`">Title {{ titleSize }}</h1>
+						:class="`title is-${titleSize}`"
+					>
+						Title {{ titleSize }}
+					</h1>
 				</bsg-subsection>
 				<bsg-subsection>
-					<h1 v-for="(titleSize, titleI) in titleSizes"
+					<h1
+						v-for="(titleSize, titleI) in titleSizes"
 						:key="titleI"
-						:class="`subtitle is-${titleSize}`">Subtitle {{ titleSize }}</h1>
+						:class="`subtitle is-${titleSize}`"
+					>
+						Subtitle {{ titleSize }}
+					</h1>
 				</bsg-subsection>
 				<bsg-subsection>
-					<div class="content"
+					<div
 						v-for="(titleSize, titleI) in titleSizes.slice(0, (titlePairOffset * -1))"
-						:key="titleI">
-						<h1 :class="`title is-${titleSize}`">Title {{ titleSize }}</h1>
-						<h1 :class="`subtitle is-${titleSize + titlePairOffset}`">Subtitle {{ titleSize + titlePairOffset }}</h1>
+						:key="titleI"
+						class="content"
+					>
+						<h1 :class="`title is-${titleSize}`">
+							Title {{ titleSize }}
+						</h1>
+						<h1 :class="`subtitle is-${titleSize + titlePairOffset}`">
+							Subtitle {{ titleSize + titlePairOffset }}
+						</h1>
 					</div>
 				</bsg-subsection>
 			</bsg-section>
@@ -317,9 +364,10 @@ They had found their dead city brooding under its curse, and had read its carven
 			<bsg-section title="Tags">
 				<bsg-subsection title="Tags Sizes">
 					<div class="tags">
-						<b-tag v-for="(tagSizeKey, tagSizeIndex) in tagSizes"
-							:rounded="preferRounded"
+						<b-tag
+							v-for="(tagSizeKey, tagSizeIndex) in tagSizes"
 							:key="tagSizeIndex"
+							:rounded="preferRounded"
 							:type="`is-${tagTypes[tagSizeIndex]}`"
 							:size="`is-${tagSizeKey}`"
 						>
@@ -330,9 +378,10 @@ They had found their dead city brooding under its curse, and had read its carven
 
 				<bsg-subsection title="Semantic Tags">
 					<div class="tags">
-						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
-							:rounded="preferRounded"
+						<b-tag
+							v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
 							:key="tagTypeIndex"
+							:rounded="preferRounded"
 							:type="`is-${tagTypeKey}`"
 						>
 							{{ tagTypeKey }} Tag
@@ -342,9 +391,10 @@ They had found their dead city brooding under its curse, and had read its carven
 
 				<bsg-subsection :title="`${preferRounded ? 'Squared' : 'Rounded'} Tags`">
 					<div class="tags">
-						<b-tag v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
-							:rounded="!preferRounded"
+						<b-tag
+							v-for="(tagTypeKey, tagTypeIndex) in tagTypes"
 							:key="tagTypeIndex"
+							:rounded="!preferRounded"
 							:type="`is-${tagTypeKey}`"
 						>
 							{{ tagTypeKey }} Tag
@@ -354,12 +404,13 @@ They had found their dead city brooding under its curse, and had read its carven
 
 				<bsg-subsection title="Closeable Tags">
 					<div class="tags">
-						<b-tag v-for="(tagTypeKey, tagTypeIndex) in closeableTags"
-							:rounded="preferRounded"
+						<b-tag
+							v-for="(tagTypeKey, tagTypeIndex) in closeableTags"
 							:key="tagTypeKey"
+							:rounded="preferRounded"
 							:type="`is-${tagTypeKey}`"
-							@close="closeTab(tagTypeIndex)"
 							closable
+							@close="closeTab(tagTypeIndex)"
 						>
 							{{ tagTypeKey }} Tag
 						</b-tag>
@@ -368,15 +419,17 @@ They had found their dead city brooding under its curse, and had read its carven
 
 				<bsg-subsection title="Attached Closeable Tags">
 					<div class="field is-grouped is-grouped-multiline">
-						<div class="control"
+						<div
 							v-for="(tagTypeKey, tagTypeIndex) in attachedCloseableTags"
 							:key="tagTypeIndex"
+							class="control"
 						>
-							<b-tag :rounded="preferRounded"
+							<b-tag
+								:rounded="preferRounded"
 								:type="`is-${tagTypeKey}`"
 								closable
-								@close="closeAttachedTab(tagTypeIndex)"
 								attached
+								@close="closeAttachedTab(tagTypeIndex)"
 							>
 								{{ tagTypeKey }} Tag
 							</b-tag>
@@ -384,7 +437,6 @@ They had found their dead city brooding under its curse, and had read its carven
 					</div>
 				</bsg-subsection>
 			</bsg-section>
-
 		</main>
 	</div>
 </template>
@@ -406,75 +458,75 @@ import BsgSubsection from './BsgSubsection.vue';
 import DialogModal from './DialogModal.vue';
 
 export default {
-	name      : 'BuefyStyleGuide',
+	name: 'BuefyStyleGuide',
 	components: {
 		BsgSection,
 		BsgSubsection,
 		DialogModal,
 	},
-	data() {
-		return {
-			titlePairOffset : 2,
-			tagState        : Array(this.tagTypes.length).fill(true),
-			attachedTagState: Array(this.tagTypes.length).fill(true),
-		};
-	},
-	props     : {
+	props: {
 		// Should rounded buttons be used as the standard button type?
 		preferRounded: {
-			type   : Boolean,
+			type: Boolean,
 			default: false,
 		},
 		heroModifiers: {
-			type   : String,
+			type: String,
 			default: 'is-primary is-bold',
 		},
-		title        : {
-			type   : String,
+		title: {
+			type: String,
 			default: 'Buefy Style Guide',
 		},
-		subtitle     : {
-			type   : String,
+		subtitle: {
+			type: String,
 			default: 'You\'re looking good today',
 		},
-		buttonTypes  : {
-			type   : Array,
+		buttonTypes: {
+			type: Array,
 			default: () => DEFAULT_BUTTON_TYPES,
 		},
-		buttonSizes  : {
-			type   : Array,
+		buttonSizes: {
+			type: Array,
 			default: () => DEFAULT_BUTTON_SIZES,
 		},
-		buttonIcons  : {
-			type   : Array,
+		buttonIcons: {
+			type: Array,
 			default: () => DEFAULT_BUTTON_ICONS,
 		},
-		titleSizes   : {
-			type   : Array,
+		titleSizes: {
+			type: Array,
 			default: () => DEFAULT_TITLE_SIZES,
 		},
-		tagTypes     : {
-			type   : Array,
+		tagTypes: {
+			type: Array,
 			default: () => DEFAULT_TAG_TYPES,
 		},
-		tagSizes     : {
-			type   : Array,
+		tagSizes: {
+			type: Array,
 			default: () => DEFAULT_BUTTON_SIZES,
 		},
 		dropdownItems: {
-			type   : Array,
+			type: Array,
 			default: () => DEFAULT_DROPDOWN_ITEMS,
 		},
-		dialogSizes  : {
-			type   : Array,
+		dialogSizes: {
+			type: Array,
 			default: () => DEFAULT_DIALOG_SIZES,
 		},
 		semanticTypes: {
-			type   : Array,
+			type: Array,
 			default: () => CORE_SEMANTIC_TYPES,
 		},
 	},
-	computed  : {
+	data() {
+		return {
+			titlePairOffset: 2,
+			tagState: Array(this.tagTypes.length).fill(true),
+			attachedTagState: Array(this.tagTypes.length).fill(true),
+		};
+	},
+	computed: {
 		closeableTags() {
 			return this.tagTypes.filter((tagTypeKey, tagTypeIndex) => this.tagState[tagTypeIndex]);
 		},
@@ -482,7 +534,7 @@ export default {
 			return this.tagTypes.filter((tagTypeKey, tagTypeIndex) => this.attachedTagState[tagTypeIndex]);
 		},
 	},
-	methods   : {
+	methods: {
 		getIconCode(index) {
 			return this.buttonIcons[index % this.buttonIcons.length];
 		},
@@ -504,7 +556,6 @@ export default {
 		&__body {
 			padding: $spacer 0;
 		}
-
 
 		::v-deep {
 			.button,
