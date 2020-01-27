@@ -19,6 +19,17 @@ export const DEFAULT_BUTTON_TYPES = [
 	'text',
 ];
 
+export const DEFAULT_FIELD_TYPES = [
+	'default',
+	'primary',
+	'success',
+	'info',
+	'warning',
+	'danger',
+	'light',
+	'dark',
+];
+
 export const DEFAULT_TAG_TYPES = [
 	'default',
 	'primary',
@@ -34,6 +45,13 @@ export const DEFAULT_TAG_TYPES = [
 ];
 
 export const DEFAULT_BUTTON_SIZES = [
+	'normal',
+	'medium',
+	'large',
+];
+
+export const DEFAULT_INPUT_SIZES = [
+	'small',
 	'normal',
 	'medium',
 	'large',

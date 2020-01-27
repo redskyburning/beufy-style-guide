@@ -16,6 +16,8 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
+			<form-section />
+
 			<bsg-section
 				title="Buttons"
 				open
@@ -456,6 +458,7 @@ import {
 import BsgSection from './BsgSection.vue';
 import BsgSubsection from './BsgSubsection.vue';
 import DialogModal from './DialogModal.vue';
+import FormSection from './FormSection.vue';
 
 export default {
 	name: 'BuefyStyleGuide',
@@ -463,6 +466,7 @@ export default {
 		BsgSection,
 		BsgSubsection,
 		DialogModal,
+		FormSection,
 	},
 	props: {
 		// Should rounded buttons be used as the standard button type?
