@@ -13,6 +13,7 @@
 					message="Test message text"
 				>
 					<b-select
+						:size="`is-${inputSizeKey}`"
 						placeholder="Select a word"
 						:rounded="preferRounded"
 					>
