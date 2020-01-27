@@ -16,11 +16,22 @@
 			</div>
 		</header>
 		<main class="buefy-style-guide__body">
-			<form-section />
+
+			<select-section
+				:input-sizes="inputSizes"
+				:field-types="fieldTypes"
+				:prefer-rounded="preferRounded"
+				open
+			/>
+
+			<input-section
+				:input-sizes="inputSizes"
+				:field-types="fieldTypes"
+				:prefer-rounded="preferRounded"
+			/>
 
 			<bsg-section
 				title="Buttons"
-				open
 			>
 				<bsg-subsection title="Semantic Buttons">
 					<div class="buttons">
@@ -444,21 +455,22 @@ They had found their dead city brooding under its curse, and had read its carven
 </template>
 
 <script>
-import {
-	CORE_SEMANTIC_TYPES,
-	DEFAULT_BUTTON_ICONS,
-	DEFAULT_BUTTON_SIZES,
-	DEFAULT_BUTTON_TYPES,
-	DEFAULT_DIALOG_SIZES,
-	DEFAULT_DROPDOWN_ITEMS,
-	DEFAULT_TAG_TYPES,
-	DEFAULT_TITLE_SIZES,
-} from '../constants';
+	import {
+		CORE_SEMANTIC_TYPES,
+		DEFAULT_BUTTON_ICONS,
+		DEFAULT_BUTTON_SIZES,
+		DEFAULT_BUTTON_TYPES,
+		DEFAULT_DIALOG_SIZES,
+		DEFAULT_DROPDOWN_ITEMS, DEFAULT_FIELD_TYPES, DEFAULT_INPUT_SIZES,
+		DEFAULT_TAG_TYPES,
+		DEFAULT_TITLE_SIZES,
+	} from '../constants';
 
 import BsgSection from './BsgSection.vue';
 import BsgSubsection from './BsgSubsection.vue';
 import DialogModal from './DialogModal.vue';
-import FormSection from './FormSection.vue';
+import InputSection from './InputSection.vue';
+import SelectSection from './SelectSection.vue';
 
 export default {
 	name: 'BuefyStyleGuide',
@@ -466,7 +478,8 @@ export default {
 		BsgSection,
 		BsgSubsection,
 		DialogModal,
-		FormSection,
+		InputSection,
+		SelectSection,
 	},
 	props: {
 		// Should rounded buttons be used as the standard button type?
@@ -521,6 +534,14 @@ export default {
 		semanticTypes: {
 			type: Array,
 			default: () => CORE_SEMANTIC_TYPES,
+		},
+		inputSizes: {
+			type: Array,
+			default: () => DEFAULT_INPUT_SIZES,
+		},
+		fieldTypes: {
+			type: Array,
+			default: () => DEFAULT_FIELD_TYPES,
 		},
 	},
 	data() {
